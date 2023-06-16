@@ -7,5 +7,6 @@ class Vector {
   int aboba = 5;
   using value_type = T;
   value_type = 6;
+  int kekka;
 };
 #endif  // SRC_S21_VECTOR_H_
