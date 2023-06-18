@@ -4,11 +4,15 @@
 #include "s21_Vector.h"
 
 // s21::Vector():
+// size_type s21::Vector::get_size() { return size_; }
+
+// typename s21::Vector<T>::size_type s21::Vector<T>::get_size() { return size_;
+// }
 
 int main() {
   //
   s21::Vector<int> vec(43);
-  std::cout << "aboba: " << vec.size_ << std::endl;
+  std::cout << "aboba: " << vec.get_size() << std::endl;
 
   // std::vector<int> vect;
   // std::cout << vect.capacity() << std::endl;

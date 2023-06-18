@@ -14,16 +14,16 @@ class Vector {
   using size_type = size_t;
 
   Vector() : size_(0), capacity_(0){};
-  Vector(size_type n)
-      : size_(n),
-        capacity_(n){
-            //
-        };
-
-  size_t size_;
-  size_t capacity_;
+  Vector(size_type n) : size_(n), capacity_(n) {
+    p_vector = new value_type(n);
+  };
+  vector(std::initializer_list<value_type> const& items);
+  size_t get_size() { return size_; };
 
  private:
+  size_t size_;
+  size_t capacity_;
+  value_type* p_vector;
 };
 }  // namespace s21
 #endif  // SRC_S21_VECTOR_H_
