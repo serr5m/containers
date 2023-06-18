@@ -7,11 +7,11 @@
 
 int main() {
   //
-  s21::Vector<int> vec;
-  // std::cout << "aboba: " << vec.size_ << std::endl;
+  s21::Vector<int> vec(43);
+  std::cout << "aboba: " << vec.size_ << std::endl;
 
-  std::vector<int> vect;
-  std::cout << vect.capacity() << std::endl;
+  // std::vector<int> vect;
+  // std::cout << vect.capacity() << std::endl;
 
   // vec.value
   //
