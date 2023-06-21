@@ -13,14 +13,21 @@ using std::endl;
 
 int main() {
   //
-  s21::Vector<int> vec{1, 2, 3, 4, 5};
+  // s21::Vector<int> vec{1, 2, 3, 4, 5};
+  // cout << vec.at(-1) << endl;
+  // s21::Vector<int> vec1{1, 4, 5};
+  // vec1 = std::move(vec);
 
-  std::cout << "size: " << vec.get_size() << std::endl;
-  std::cout << "capacity: " << vec.get_capacity() << std::endl;
-  std::cout << "p_vector: " << vec.get_pointer() << endl;
-  // vec[2] = 33;
-  // for (int i = 0; i < 150; i++) {
-  //   cout << vec[i] << endl;
+  // std::cout << "size: " << vec1.get_size() << std::endl;
+  // std::cout << "capacity: " << vec1.get_capacity() << std::endl;
+  // std::cout << "p_vector: " << vec1.get_pointer() << endl;
+  // // vec[2] = 33;`
+  // for (int i = 0; i < vec1.get_size(); i++) {
+  //   cout << vec1[i] << endl;
+  // }
+
+  // for (int i = 0; i < vec1.get_size(); i++) {
+  //   cout << vec1[i] << endl;
   // }
   // for (size_t i = 0; i < vec.get_capacity(); i++) {
   // cout << *(vec.get_pointer()) << endl;
@@ -34,12 +41,15 @@ int main() {
   //
 
   std::vector<int> obame{6, 4, 7, 9, 9};
-  cout << "capa " << obame.capacity() << endl;
-  obame.at(4) = 55;
-  cout << obame.size() << endl;
-  for (auto var : obame) {
-    cout << var << endl;
-  }
+  cout << obame.at(-1) << endl;
+  std::vector<int> aboba(obame);
+
+  // // cout << "capa " << obame.capacity() << endl;
+  // // obame.at(4) = 55;
+  // // cout << obame.size() << endl;
+  // for (auto var : obame) {
+  //   cout << var << endl;
+  // }
   // cout << *obame.begin() << endl;
   // obame{1, 2};
   // cout << obame.at(43) << endl;
