@@ -13,7 +13,18 @@ using std::endl;
 
 int main() {
   //
-  // s21::Vector<int> vec{1, 2, 3, 4, 5};
+  s21::Vector<int> vec{123};
+  // cout << *vec.begin() << endl;
+  // cout << *(vec.end() - 1) << endl;
+  cout << vec.empty() << endl;
+  // // int a = vec.front();
+  // cout << vec.front() << endl;
+  // cout << *(vec.data() + 7) << endl;
+  // // int s = vec.back();
+  // cout << s << endl;
+  // int x = 100;
+  // x = static_cast<int>(x / 2.5);
+  // cout << x << endl;
   // cout << vec.at(-1) << endl;
   // s21::Vector<int> vec1{1, 4, 5};
   // vec1 = std::move(vec);
@@ -40,9 +51,12 @@ int main() {
   // vec.value
   //
 
-  std::vector<int> obame{6, 4, 7, 9, 9};
-  cout << obame.at(-1) << endl;
-  std::vector<int> aboba(obame);
+  std::vector<int> obame{2};
+  cout << obame.empty() << endl;
+  // obame.begin();
+
+  // cout << obame.at(-1) << endl;
+  // std::vector<int> aboba(obame);
 
   // // cout << "capa " << obame.capacity() << endl;
   // // obame.at(4) = 55;

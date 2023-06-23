@@ -62,7 +62,22 @@ class Vector {
     return pointer_vector_[pos];
   }
 
+  const reference front() { return *pointer_vector_; };
+  // const reference front() { return static_cast<reference>(*pointer_vector_);
+  // };
+
+  const reference back() { return *(pointer_vector_ + size_ - 1); }
+
+  T* data() { return pointer_vector_; }
+
+  iterator begin() { return pointer_vector_; }
+
+  iterator end() { return (pointer_vector_ + size_); }
+
   void RemoveVector() { delete[] pointer_vector_; };
+
+  bool empty() { return !size_; }
+
   size_t get_size() { return size_; };
   size_t get_capacity() { return capacity_; };
   T* get_pointer() { return pointer_vector_; };
