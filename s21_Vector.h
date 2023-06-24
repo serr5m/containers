@@ -1,6 +1,7 @@
 #ifndef SRC_S21_VECTOR_H_
 #define SRC_S21_VECTOR_H
-// #include <initializer_list.h>
+#include <initializer_list>
+#include <limits>
 
 namespace s21 {
 template <typename T>
@@ -74,14 +75,57 @@ class Vector {
 
   iterator end() { return (pointer_vector_ + size_); }
 
-  void RemoveVector() { delete[] pointer_vector_; };
+  void RemoveVector() { delete[] pointer_vector_; }
 
   bool empty() { return !size_; }
 
-  size_t get_size() { return size_; };
-  size_t get_capacity() { return capacity_; };
-  T* get_pointer() { return pointer_vector_; };
+  size_type size() { return size_; }
 
+  size_type max_size() {
+    return std::numeric_limits<std::ptrdiff_t>::max() / sizeof(value_type);
+  }
+
+  void reserve(size_type size) {
+    if (size > max_size()) {
+      throw std::length_error("Size greater than max_size");
+    }
+    if (capacity_ < size) {
+      value_type* tmp = pointer_vector_;
+      pointer_vector_ = new value_type[size];
+      for (size_t i = 0; i < size_; ++i) {
+        pointer_vector_[i] = tmp[i];
+      }
+      delete[] tmp;
+      capacity_ = size;
+    }
+  }
+
+  size_type capacity() { return capacity_; }
+
+  void shrink_to_fit() {
+    if (capacity_ > size_) {
+      value_type* tmp = pointer_vector_;
+      pointer_vector_ = new value_type[size_];
+      for (size_t i = 0; i < size_; ++i) {
+        pointer_vector_[i] = tmp[i];
+      }
+      delete[] tmp;
+      capacity_ = size_;
+    }
+  }
+
+  void clear() { size_ = 0; }
+
+  void push_back(const_reference value) {
+    if (size_ >= capacity_) {
+      if (capacity_ = 0) {
+        reserve(1);
+        *(data() + size()) = value;
+      } else {
+        reserve(capacity_ * 2);
+      }
+    }
+  }
   //   reference operator[](size_type pos);	access specified element
 
  private:

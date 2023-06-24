@@ -12,30 +12,15 @@ using std::cout;
 using std::endl;
 
 int main() {
-  //
-  s21::Vector<int> vec{123};
-  // cout << *vec.begin() << endl;
-  // cout << *(vec.end() - 1) << endl;
-  cout << vec.empty() << endl;
-  // // int a = vec.front();
-  // cout << vec.front() << endl;
-  // cout << *(vec.data() + 7) << endl;
-  // // int s = vec.back();
-  // cout << s << endl;
-  // int x = 100;
-  // x = static_cast<int>(x / 2.5);
-  // cout << x << endl;
-  // cout << vec.at(-1) << endl;
-  // s21::Vector<int> vec1{1, 4, 5};
-  // vec1 = std::move(vec);
-
-  // std::cout << "size: " << vec1.get_size() << std::endl;
-  // std::cout << "capacity: " << vec1.get_capacity() << std::endl;
+  s21::Vector<int> test;
+  test.push_back(4);
+  test.push_back(6);
+  std::cout << "capacity: " << test.capacity() << std::endl;
   // std::cout << "p_vector: " << vec1.get_pointer() << endl;
   // // vec[2] = 33;`
-  // for (int i = 0; i < vec1.get_size(); i++) {
-  //   cout << vec1[i] << endl;
-  // }
+  for (int i = 0; i < test.size(); ++i) {
+    cout << test[i] << endl;
+  }
 
   // for (int i = 0; i < vec1.get_size(); i++) {
   //   cout << vec1[i] << endl;
@@ -50,9 +35,51 @@ int main() {
 
   // vec.value
   //
+  // s21::Vector<long int> aboba{1, 2, 3, 4, 5};
+  // aboba[4] = 34;
+  // // for (size_t i = 0; i < aboba.get_capacity(); ++i) {
+  // //   cout << aboba.at(i) << endl;
+  // // }
+  // // cout << aboba.get_capacity() << endl;
+  // aboba.reserve(13);
+  // // cout << aboba.get_capacity() << endl;
+  // // cout << aboba.get_size() << endl;
+  // for (size_t i = 0; i < aboba.get_capacity(); ++i) {
+  //   cout << aboba[i] << endl;
+  // }
 
-  std::vector<int> obame{2};
-  cout << obame.empty() << endl;
+  // std::vector<long int> obame;
+  // // obame.push_back(7);
+  // for (size_t i = 0; i < obame.size(); ++i) {
+  //   cout << obame.at(i) << endl;
+  // }
+  // obame.push_back(7);
+  // cout << "std capa " << obame.capacity() << endl;
+
+  // s21::Vector<long int> aboba(12);
+  // // obame.push_back(7);
+  // aboba[0] = 45;
+  // for (size_t i = 0; i < aboba.size(); ++i) {
+  //   cout << aboba.at(i) << endl;
+  // }
+  // aboba.shrink_to_fit();
+  // cout << "capa " << aboba.capacity() << endl;
+
+  // cout << obame.size() << endl;
+  // cout << obame.capacity() << endl;
+
+  // for (auto item : obame) {
+  //   cout << item << endl;
+  // }
+  // obame.reserve(44);
+  // cout << obame.capacity() << endl;
+
+  // obame.push_back(2);
+  // // obame.push_back(1);
+  // obame.reserve(19);
+  // cout << obame.capacity() << endl;
+
+  // cout << aboba.max_size() << endl;
   // obame.begin();
 
   // cout << obame.at(-1) << endl;
