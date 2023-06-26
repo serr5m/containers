@@ -12,32 +12,20 @@ using std::cout;
 using std::endl;
 
 int main() {
-  s21::Vector<int> test;
-  test.push_back(4);
-  test.push_back(6);
-  std::cout << "capacity: " << test.capacity() << std::endl;
+  // s21::Vector<int> test{1, 2, 3};
+  // s21::Vector<int> test{4, 5, 6, 7, 8};
+  // int a = std::distance(test.begin(), test.end());
+  // cout << a << endl;
+  // test.insert(test.begin() + 3, 77);
+
   // std::cout << "p_vector: " << vec1.get_pointer() << endl;
   // // vec[2] = 33;`
-  for (int i = 0; i < test.size(); ++i) {
-    cout << test[i] << endl;
-  }
-
-  // for (int i = 0; i < vec1.get_size(); i++) {
-  //   cout << vec1[i] << endl;
+  // for (int i = 0; i < test.size(); ++i) {
+  //   cout << test[i] << endl;
   // }
-  // for (size_t i = 0; i < vec.get_capacity(); i++) {
-  // cout << *(vec.get_pointer()) << endl;
 
-  // << vec.get_pointer() << std::endl;
-  // cout << vec[0] << endl;
-  // std::vector<int> vect;
-  // std::cout << vect.capacity() << std::endl;
-
-  // vec.value
-  //
   // s21::Vector<long int> aboba{1, 2, 3, 4, 5};
-  // aboba[4] = 34;
-  // // for (size_t i = 0; i < aboba.get_capacity(); ++i) {
+  // for (size_t i = 0; i < aboba.get_capacity(); ++i) {
   // //   cout << aboba.at(i) << endl;
   // // }
   // // cout << aboba.get_capacity() << endl;
@@ -48,13 +36,15 @@ int main() {
   //   cout << aboba[i] << endl;
   // }
 
-  // std::vector<long int> obame;
-  // // obame.push_back(7);
-  // for (size_t i = 0; i < obame.size(); ++i) {
-  //   cout << obame.at(i) << endl;
-  // }
+  std::vector<int> obame{1, 2, 3, 4, 5, 6, 7};
+  obame.insert(obame.begin() + 2, {88, 99, 0});
+  // std::vector<int> emabo{3, 2, 1, 0, -1};
+  // obame.swap(obame);
+  for (size_t i = 0; i < obame.size(); ++i) {
+    cout << obame.at(i) << endl;
+  }
   // obame.push_back(7);
-  // cout << "std capa " << obame.capacity() << endl;
+  // cout << "std capa " << §.capacity() << endl;
 
   // s21::Vector<long int> aboba(12);
   // // obame.push_back(7);

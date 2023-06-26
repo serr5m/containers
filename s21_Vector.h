@@ -1,5 +1,5 @@
 #ifndef SRC_S21_VECTOR_H_
-#define SRC_S21_VECTOR_H
+#define SRC_S21_VECTOR_H_
 #include <initializer_list>
 #include <limits>
 
@@ -7,7 +7,7 @@ namespace s21 {
 template <typename T>
 class Vector {
  public:
-  int aboba = 5;
+  // int aboba = 5;
   using value_type = T;
   using reference = T&;
   using const_reference = const T&;
@@ -44,6 +44,12 @@ class Vector {
   };
   ~Vector() { RemoveVector(); };
 
+  reference at(size_type pos) {
+    if (pos >= size_) {
+      throw std::out_of_range("Index greater than vector size ");
+    }
+    return pointer_vector_[pos];
+  }
   reference operator[](size_type pos) { return pointer_vector_[pos]; };
   //   value_type operator[](int index) { return pointer_vector_[index]; };
   Vector& operator=(Vector&& v) {
@@ -56,12 +62,6 @@ class Vector {
     v.pointer_vector_ = nullptr;
     return *this;
   };
-  reference at(size_type pos) {
-    if (pos >= size_) {
-      throw std::out_of_range("Index greater than vector size ");
-    }
-    return pointer_vector_[pos];
-  }
 
   const reference front() { return *pointer_vector_; };
   // const reference front() { return static_cast<reference>(*pointer_vector_);
@@ -85,18 +85,18 @@ class Vector {
     return std::numeric_limits<std::ptrdiff_t>::max() / sizeof(value_type);
   }
 
-  void reserve(size_type size) {
-    if (size > max_size()) {
+  void reserve(size_type new_size) {
+    if (new_size > max_size()) {
       throw std::length_error("Size greater than max_size");
     }
-    if (capacity_ < size) {
+    if (capacity_ < new_size) {
       value_type* tmp = pointer_vector_;
-      pointer_vector_ = new value_type[size];
+      pointer_vector_ = new value_type[new_size];
       for (size_t i = 0; i < size_; ++i) {
         pointer_vector_[i] = tmp[i];
       }
       delete[] tmp;
-      capacity_ = size;
+      capacity_ = new_size;
     }
   }
 
@@ -116,17 +116,27 @@ class Vector {
 
   void clear() { size_ = 0; }
 
-  void push_back(const_reference value) {
-    if (size_ >= capacity_) {
-      if (capacity_ = 0) {
-        reserve(1);
-        *(data() + size()) = value;
-      } else {
-        reserve(capacity_ * 2);
-      }
-    }
+  iterator insert(iterator pos, const_reference value) {
+    //
+    s21::Vector<value_type> new_vector;
+    return 1;
   }
+
+  void push_back(const_reference value) {
+    if (size_ == capacity_) {
+      size_type new_capacity = capacity_ == 0 ? 1 : capacity_ * 2;
+      reserve(new_capacity);
+    }
+    pointer_vector_[size_++] = value;
+  }
+
+  void pop_back() { --size_; }
   //   reference operator[](size_type pos);	access specified element
+  void swap(Vector& other) {
+    std::swap(size_, other.size_);
+    std::swap(capacity_, other.capacity_);
+    std::swap(pointer_vector_, other.pointer_vector_);
+  }
 
  private:
   size_t size_;
