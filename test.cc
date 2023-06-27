@@ -1,3 +1,4 @@
+#include <array>
 #include <iostream>
 #include <vector>
 
@@ -12,17 +13,21 @@ using std::cout;
 using std::endl;
 
 int main() {
-  s21::vector<int> aboba{1, 2, 3, 4, 5, 6, 7, 8, 9};
-  cout << "before size " << aboba.size() << endl;
-  cout << "before capa " << aboba.size() << endl;
-  s21::vector<int>::iterator poso = aboba.begin() + 3;
-
-  aboba.erase(poso);
-  cout << "after size " << aboba.size() << endl;
-  cout << "after capa " << aboba.size() << endl;
-  for (int i = 0; i < aboba.size(); ++i) {
-    cout << aboba[i] << endl;
+  std::array<int, 5> ar{{1, 2, 3}};
+  for (auto i : ar) {
+    cout << i << endl;
   }
+  // s21::vector<int> aboba{1, 2, 3, 4, 5, 6, 7, 8, 9};
+  // cout << "before size " << aboba.size() << endl;
+  // cout << "before capa " << aboba.size() << endl;
+  // s21::vector<int>::iterator poso = aboba.begin() + 3;
+
+  // aboba.erase(poso);
+  // cout << "after size " << aboba.size() << endl;
+  // cout << "after capa " << aboba.size() << endl;
+  // for (int i = 0; i < aboba.size(); ++i) {
+  //   cout << aboba[i] << endl;
+  // }
 
   // int dist = std::distance(aboba.begin(), poso);
   // // cout << "dist " << dist << endl;
