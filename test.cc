@@ -2,7 +2,8 @@
 #include <iostream>
 #include <vector>
 
-#include "s21_Vector.h"
+#include "s21_array.h"
+#include "s21_vector.h"
 
 // s21::Vector():
 // size_type s21::Vector::get_size() { return size_; }
@@ -13,10 +14,21 @@ using std::cout;
 using std::endl;
 
 int main() {
-  std::array<int, 5> ar{{1, 2, 3}};
-  for (auto i : ar) {
-    cout << i << endl;
+  // s21::array<int, 5> ar;
+  // cout << ar.size() << endl;
+
+  std::array<int, 3> arr{1, 2};
+  cout << arr.size() << endl;
+  // for (size_t i = 0; i < arr.size(); i++) {
+  //   arr[i] = i;
+  // }
+  for (size_t i = 0; i < arr.size(); i++) {
+    cout << arr[i] << endl;
   }
+
+  // for (auto i : ar) {
+  //   cout << i << endl;
+  // }
   // s21::vector<int> aboba{1, 2, 3, 4, 5, 6, 7, 8, 9};
   // cout << "before size " << aboba.size() << endl;
   // cout << "before capa " << aboba.size() << endl;
