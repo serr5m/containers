@@ -12,19 +12,66 @@ using std::cout;
 using std::endl;
 
 int main() {
+  s21::vector<int> aboba{1, 2, 3, 4, 5, 6, 7, 8, 9};
+  cout << "before size " << aboba.size() << endl;
+  cout << "before capa " << aboba.size() << endl;
+  s21::vector<int>::iterator poso = aboba.begin() + 3;
+
+  aboba.erase(poso);
+  cout << "after size " << aboba.size() << endl;
+  cout << "after capa " << aboba.size() << endl;
+  for (int i = 0; i < aboba.size(); ++i) {
+    cout << aboba[i] << endl;
+  }
+
+  // int dist = std::distance(aboba.begin(), poso);
+  // // cout << "dist " << dist << endl;
+  // auto it = aboba.insert(poso, 77);
+  // cout << "it " << *it << endl;
+  // cout << "capa " << aboba.capacity() << endl;
+  // cout << "size " << aboba.size() << endl;
+  // cout << "---------------" << endl;
+
+  // std::vector<int> papa{1, 2, 3, 4, 5, 6, 7, 8, 9};
+  // cout << "before size " << papa.size() << endl;
+  // cout << "before capa " << papa.size() << endl;
+  // auto pos = papa.begin() + 3;
+  // papa.erase(pos);
+  // for (int i = 0; i < papa.size(); ++i) {
+  //   cout << papa[i] << endl;
+  // }
+  // cout << "after size " << papa.size() << endl;
+  // cout << "after capa " << papa.size() << endl;
+
+  // auto it1 = papa.insert(papa.begin() + 3, 88);
+  // papa.erase(papa.begin() + 4);
+  // // cout << "it " << *it1 << endl;
+  // cout << "capa " << papa.capacity() << endl;
+  // cout << "size " << papa.size() << endl;
+  // cout << "---------------" << endl;
+  // papa.push_back(3);
+
+  // cout << "capa " << papa.capacity() << endl;
+  // cout << "size " << papa.size() << endl;
+  // for (int i = 0; i < papa.size(); ++i) {
+  //   cout << papa[i] << endl;
+  // }
+
   // s21::Vector<int> test{1, 2, 3};
+
   // s21::Vector<int> test{4, 5, 6, 7, 8};
   // int a = std::distance(test.begin(), test.end());
   // cout << a << endl;
-  // test.insert(test.begin() + 3, 77);
 
   // std::cout << "p_vector: " << vec1.get_pointer() << endl;
   // // vec[2] = 33;`
-  // for (int i = 0; i < test.size(); ++i) {
-  //   cout << test[i] << endl;
-  // }
 
-  // s21::Vector<long int> aboba{1, 2, 3, 4, 5};
+  // std::vector<int> abobab{1, 3, 4};
+  // abobab.insert(abobab.begin() + 2, 777);
+  // abobab.insert(abobab.begin() + 2, 777);
+  // std::cout << abobab.size() << endl;
+  // std::cout << abobab.capacity() << endl;
+
   // for (size_t i = 0; i < aboba.get_capacity(); ++i) {
   // //   cout << aboba.at(i) << endl;
   // // }
@@ -36,13 +83,17 @@ int main() {
   //   cout << aboba[i] << endl;
   // }
 
-  std::vector<int> obame{1, 2, 3, 4, 5, 6, 7};
-  obame.insert(obame.begin() + 2, {88, 99, 0});
-  // std::vector<int> emabo{3, 2, 1, 0, -1};
-  // obame.swap(obame);
-  for (size_t i = 0; i < obame.size(); ++i) {
-    cout << obame.at(i) << endl;
-  }
+  // std::vector<int> obame{1, 2, 3, 4, 5, 6, 7};
+  // obame.push_back(1);
+  // obame.insert(obame.begin() + 2, {88, 99, 0});
+  // s21::Vector<int>::iterator my_it = a.begin();
+  // s21::Vector<int>::iterator pos = (obame.begin() + 2);
+  // // std::vector<int> emabo{3, 2, 1, 0, -1};
+  // // obame.swap(obame);
+  // for (size_t i = 0; i < obame.size(); ++i) {
+  //   cout << obame.at(i) << endl;
+  // }
+
   // obame.push_back(7);
   // cout << "std capa " << §.capacity() << endl;
 

@@ -5,9 +5,8 @@
 
 namespace s21 {
 template <typename T>
-class Vector {
+class vector {
  public:
-  // int aboba = 5;
   using value_type = T;
   using reference = T&;
   using const_reference = const T&;
@@ -15,11 +14,11 @@ class Vector {
   using const_iterator = const T*;
   using size_type = size_t;
 
-  Vector() : size_(0), capacity_(0), pointer_vector_(nullptr){};
-  Vector(size_type n) : size_(n), capacity_(n) {
+  vector() : size_(0), capacity_(0), pointer_vector_(nullptr){};
+  vector(size_type n) : size_(n), capacity_(n) {
     pointer_vector_ = new value_type[n];
   };
-  Vector(std::initializer_list<value_type> const& items)
+  vector(std::initializer_list<value_type> const& items)
       : size_(items.size()),
         capacity_(items.size()),
         pointer_vector_(new value_type[items.size()]) {
@@ -28,7 +27,7 @@ class Vector {
       pointer_vector_[i] = *item;
     }
   };
-  Vector(const Vector& v)
+  vector(const vector& v)
       : size_(v.size_),
         capacity_(v.capacity_),
         pointer_vector_(new value_type[v.capacity_]) {
@@ -36,13 +35,13 @@ class Vector {
       pointer_vector_[i] = v.pointer_vector_[i];
     }
   };
-  Vector(Vector&& v)
+  vector(vector&& v)
       : size_(v.size_), capacity_(v.size_), pointer_vector_(v.pointer_vector_) {
     v.size_ = 0;
     v.capacity_ = 0;
     v.pointer_vector_ = nullptr;
   };
-  ~Vector() { RemoveVector(); };
+  ~vector() { Removevector(); };
 
   reference at(size_type pos) {
     if (pos >= size_) {
@@ -52,8 +51,8 @@ class Vector {
   }
   reference operator[](size_type pos) { return pointer_vector_[pos]; };
   //   value_type operator[](int index) { return pointer_vector_[index]; };
-  Vector& operator=(Vector&& v) {
-    RemoveVector();
+  vector& operator=(vector&& v) {
+    Removevector();
     size_ = v.size_;
     capacity_ = v.size_;
     pointer_vector_ = v.pointer_vector_;
@@ -75,7 +74,7 @@ class Vector {
 
   iterator end() { return (pointer_vector_ + size_); }
 
-  void RemoveVector() { delete[] pointer_vector_; }
+  void Removevector() { delete[] pointer_vector_; }
 
   bool empty() { return !size_; }
 
@@ -117,9 +116,26 @@ class Vector {
   void clear() { size_ = 0; }
 
   iterator insert(iterator pos, const_reference value) {
-    //
-    s21::Vector<value_type> new_vector;
-    return 1;
+    s21::vector<value_type> new_vector;
+    if (size_ == capacity_) {
+      int new_capacity = capacity_ == 0 ? 1 : capacity_ * 2;
+      new_vector.reserve(new_capacity);
+    }
+    int distance = std::distance(begin(), pos);
+    std::copy(begin(), begin() + distance, new_vector.begin());
+    new_vector[distance] = value;
+    std::copy(begin() + distance, end(), new_vector.begin() + distance + 1);
+    new_vector.size_ = ++size_;
+    swap(new_vector);
+    return begin() + distance;
+  }
+
+  void erase(iterator pos) {
+    s21::vector<value_type> new_vector(size_ - 1);
+    int distance = std::distance(begin(), pos);
+    std::copy(begin(), begin() + distance, new_vector.begin());
+    std::copy(begin() + distance + 1, end(), new_vector.begin() + distance);
+    swap(new_vector);
   }
 
   void push_back(const_reference value) {
@@ -132,7 +148,7 @@ class Vector {
 
   void pop_back() { --size_; }
   //   reference operator[](size_type pos);	access specified element
-  void swap(Vector& other) {
+  void swap(vector& other) {
     std::swap(size_, other.size_);
     std::swap(capacity_, other.capacity_);
     std::swap(pointer_vector_, other.pointer_vector_);
@@ -144,4 +160,4 @@ class Vector {
   value_type* pointer_vector_;
 };
 }  // namespace s21
-#endif  // SRC_S21_VECTOR_H_
+#endif  // SRC_S21_vector_H_
