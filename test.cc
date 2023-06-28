@@ -13,18 +13,63 @@
 using std::cout;
 using std::endl;
 
-int main() {
-  // s21::array<int, 5> ar;
-  // cout << ar.size() << endl;
+class Point {
+ public:
+  int x_ = 10;
+  int y_ = 10;
 
-  std::array<int, 3> arr{1, 2};
-  cout << arr.size() << endl;
-  // for (size_t i = 0; i < arr.size(); i++) {
+  Point() {}
+  Point(int x, int y) : x_(x), y_(y) {}
+};
+
+int main() {
+  Point p1(10, 20);
+  Point p2(15, 25);
+  Point p3(20, 30);
+  std::array<Point, 3> array = {p1, p2, p3};
+  std::array<Point, 3> array1;
+  array1 = std::move(array);
+
+  cout << array1[1].x_ << endl;
+  // copy(array1, array);
+
+  s21::vector<int> aboba(12);
+
+  // s21::array<int, 5> ar{1, 2, 3, 4};
+  // s21::array<int, 5> ar1(ar);
+  // // cout << ar.size() << endl;
+  // for (size_t i = 0; i < ar1.size(); i++) {
+  //   cout << ar1[i] << endl;
+  // }
+  // ///////////////
+  // std::array<int, 5> ar{1, 2, 3, 4};
+  // std::array<int, 5> ar1;
+  // ar1 = std::move(ar);
+  // if (ar.empty()) {
+  //   cout << " empty" << endl;
+  // } else {
+  //   cout << " not empty " << endl;
+  // }
+
+  // for (size_t i = 0; i < ar1.size(); i++) {
+  //   cout << ar1[i] << endl;
+  // }
+
+  // std::array<int, 5> ar1{5, 6, 7, 8};
+  // auto iter = ar.begin();
+  // cout << iter << endl;
+  // std::array<int, 5> ar1(std::move(ar));
+  // cout << iter << endl;
+  // ar(ar1);
+  // cout << ar.size() << endl;
+  // std::array<int, 10> arr;
+  // cout << arr.size() << endl;
+  // for (size_t i = 0; i < 11; i++) {
   //   arr[i] = i;
   // }
-  for (size_t i = 0; i < arr.size(); i++) {
-    cout << arr[i] << endl;
-  }
+  // for (size_t i = 0; i < 11; i++) {
+  //   cout << arr[i] << endl;
+  // }
 
   // for (auto i : ar) {
   //   cout << i << endl;

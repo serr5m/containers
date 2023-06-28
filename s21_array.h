@@ -13,19 +13,33 @@ class array {
   using const_iterator = const T *;
   using size_type = size_t;
 
-  array() : size_(N){};
+  array(){};
   array(std::initializer_list<value_type> const &items) {
-    // size_ =
-    //
-    //
+    if (items.size() > N) {
+      throw std::length_error("Too many initializers");
+    }
+    auto it = items.begin();
+    for (size_t i = 0; it != items.end(); ++i, ++it) {
+      data_[i] = *it;
+    }
   }
-  size_type size() { return size_; }
+  array(const array &a) { CopyData(a); }
+  array(array &&a) {
+    for (size_t i = 0; i < size(); ++i) {
+      data_[i] = a.data_[i];
+    }
+  }
+  size_type size() { return N; }
+  reference operator[](size_type pos) { return data_[pos]; }
 
  private:
   value_type data_[N];
-  size_type size_;
 
-  //
+  void CopyData(const array &a) {
+    for (size_t i = 0; i < size(); ++i) {
+      data_[i] = a.data_[i];
+    }
+  }
 };
 }  // namespace s21
 
