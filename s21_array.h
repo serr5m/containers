@@ -29,6 +29,7 @@ class array {
       data_[i] = a.data_[i];
     }
   }
+  array operator=(array &&a) { CopyData(a); }
   size_type size() { return N; }
   reference operator[](size_type pos) { return data_[pos]; }
 

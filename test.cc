@@ -23,24 +23,17 @@ class Point {
 };
 
 int main() {
-  Point p1(10, 20);
-  Point p2(15, 25);
-  Point p3(20, 30);
-  std::array<Point, 3> array = {p1, p2, p3};
-  std::array<Point, 3> array1;
-  array1 = std::move(array);
+  s21::array<int, 6> aboba{1, 2, 3, 4, 5, 6};
+  cout << "aboba size " << aboba.size() << endl;
 
-  cout << array1[1].x_ << endl;
-  // copy(array1, array);
-
-  s21::vector<int> aboba(12);
-
+  s21::array<int, 6> abo = aboba;
+  cout << "aboba size " << abo.size() << endl;
   // s21::array<int, 5> ar{1, 2, 3, 4};
   // s21::array<int, 5> ar1(ar);
   // // cout << ar.size() << endl;
-  // for (size_t i = 0; i < ar1.size(); i++) {
-  //   cout << ar1[i] << endl;
-  // }
+  for (size_t i = 0; i < aboba.size(); i++) {
+    cout << abo[i] << endl;
+  }
   // ///////////////
   // std::array<int, 5> ar{1, 2, 3, 4};
   // std::array<int, 5> ar1;
