@@ -35,13 +35,12 @@ class vector {
       pointer_vector_[i] = v.pointer_vector_[i];
     }
   };
-  vector(vector&& v)
-      : size_(v.size_), capacity_(v.size_), pointer_vector_(v.pointer_vector_) {
-    v.size_ = 0;
-    v.capacity_ = 0;
-    v.pointer_vector_ = nullptr;
+  vector(vector&& v) {
+    std::swap(size_, v.size_);
+    std::swap(capacity_, v.capacity_);
+    std::swap(pointer_vector_, v.pointer_vector_);
   };
-  ~vector() { Removevector(); };
+  ~vector() { RemoveVector(); };
 
   reference at(size_type pos) {
     if (pos >= size_) {
@@ -52,19 +51,15 @@ class vector {
   reference operator[](size_type pos) { return pointer_vector_[pos]; };
   //   value_type operator[](int index) { return pointer_vector_[index]; };
   vector& operator=(vector&& v) {
-    Removevector();
-    size_ = v.size_;
-    capacity_ = v.size_;
-    pointer_vector_ = v.pointer_vector_;
-    v.size_ = 0;
-    v.capacity_ = 0;
-    v.pointer_vector_ = nullptr;
+    RemoveVector();
+    std::swap(size_, v.size_);
+    std::swap(capacity_, v.capacity_);
+    std::swap(pointer_vector_, v.pointer_vector_);
     return *this;
   };
 
+  vector& operator=(const vector& v) = delete;
   const reference front() { return *pointer_vector_; };
-  // const reference front() { return static_cast<reference>(*pointer_vector_);
-  // };
 
   const reference back() { return *(pointer_vector_ + size_ - 1); }
 
@@ -74,7 +69,7 @@ class vector {
 
   iterator end() { return (pointer_vector_ + size_); }
 
-  void Removevector() { delete[] pointer_vector_; }
+  void RemoveVector() { delete[] pointer_vector_; }
 
   bool empty() { return !size_; }
 

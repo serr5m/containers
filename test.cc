@@ -21,19 +21,40 @@ class Point {
   Point() {}
   Point(int x, int y) : x_(x), y_(y) {}
 };
-
+s21::vector<int> GiveVector() { return s21::vector<int>(5); }
 int main() {
-  s21::array<int, 6> aboba{1, 2, 3, 4, 5, 6};
-  cout << "aboba size " << aboba.size() << endl;
+  s21::vector<int> aboba{1, 2, 3, 4, 5};
+  s21::vector<int> obame(std::move(aboba));
 
-  s21::array<int, 6> abo = aboba;
-  cout << "aboba size " << abo.size() << endl;
+  cout << aboba.capacity() << endl;
+  // aboba.fill(2);
+  // cout << aboba.size() << endl;
+  for (size_t i = 0; i < obame.size(); i++) {
+    cout << obame.at(i) << endl;
+  }
+  // cout << "iter " << *aboba.data() + 3 << endl;
+
+  // s21::array<int, 6> abo = aboba;
+  // s21::array<int, 6> obame = abo;
+  // cout << "aboba size " << abo.size() << endl;
   // s21::array<int, 5> ar{1, 2, 3, 4};
   // s21::array<int, 5> ar1(ar);
-  // // cout << ar.size() << endl;
-  for (size_t i = 0; i < aboba.size(); i++) {
-    cout << abo[i] << endl;
-  }
+  // // // cout << ar.size() << endl;
+  // std::array<int, 45> bold;
+  // cout << bold.max_size() << endl;
+
+  // std::array<int, 7> bold{1, 2, 3, 4, 5, 6};
+  // std::array<int, 7> bold2{7, 8, 9, 10, 11};
+  // bold.swap(bold2);
+
+  // // cout << bold.max_size() << endl;
+  // // cout << "iter data " << bold.data() << endl;
+  // // cout << "iter begin " << *(bold.end() - 1) << endl;
+
+  // for (size_t i = 0; i < bold.size(); i++) {
+  //   cout << bold.at(i) << endl;
+  // }
+  // cout << bold.at(4) << endl;
   // ///////////////
   // std::array<int, 5> ar{1, 2, 3, 4};
   // std::array<int, 5> ar1;
