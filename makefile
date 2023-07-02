@@ -1,0 +1,1 @@
+g++ s21_array.h test_array.cc -lgtest && ./a.out   
