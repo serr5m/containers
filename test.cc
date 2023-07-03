@@ -23,15 +23,21 @@ class Point {
 };
 s21::vector<int> GiveVector() { return s21::vector<int>(5); }
 int main() {
-  s21::vector<int> aboba{1, 2, 3, 4, 5};
-  s21::vector<int> obame(std::move(aboba));
+  std::vector<int> aboba{1, 2, 3, 4, 5};
+  std::vector<int> obame = std::move(aboba);
 
-  cout << aboba.capacity() << endl;
+  // s21::vector<int> aboba = {1, 2, 3, 4, 5};
+  // s21::vector<int> obame;
+  // obame = std::move(aboba);
+
+  // cout << aboba.capacity() << endl;
   // aboba.fill(2);
-  // cout << aboba.size() << endl;
-  for (size_t i = 0; i < obame.size(); i++) {
-    cout << obame.at(i) << endl;
-  }
+  // auto it = aboba.end();
+  cout << sizeof(aboba) << endl;
+
+  // for (size_t i = 0; i < aboba.size(); i++) {
+  //   cout << aboba[i] << endl;
+  // }
   // cout << "iter " << *aboba.data() + 3 << endl;
 
   // s21::array<int, 6> abo = aboba;

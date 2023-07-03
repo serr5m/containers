@@ -2,6 +2,9 @@
 #define SRC_S21_ARRAY_H
 #include <stdlib.h>
 
+#include <initializer_list>
+#include <stdexcept>
+
 namespace s21 {
 template <typename T, size_t N>
 class array {
@@ -22,14 +25,22 @@ class array {
     for (size_t i = 0; it != items.end(); ++i, ++it) {
       data_[i] = *it;
     }
-  }
+  };
   array(const array &a) { std::copy(a.data_, a.data_ + N, data_); }
   array(array &&a) { std::copy(a.data_, a.data_ + size(), data_); }
+
+  array operator=(const array &a) {
+    std::copy(a.data_, a.data_ + N, data_);
+    return *this;
+  }
+
   array operator=(array &&a) {
     std::copy(a.data_, a.data_ + N, data_);
     return *this;
   }
+
   reference operator[](size_type pos) { return data_[pos]; }
+
   reference at(size_type pos) {
     if (pos >= size()) {
       throw std::out_of_range("Index greater than array size");
@@ -42,6 +53,7 @@ class array {
   const_reference back() { return *(data_ + size() - 1); }
 
   iterator data() { return data_; }
+
   iterator begin() { return data_; }
 
   iterator end() { return data_ + size(); }
@@ -62,11 +74,11 @@ class array {
  private:
   value_type data_[N];
 
-  void CopyData(const array &a) {
-    for (size_t i = 0; i < size(); ++i) {
-      data_[i] = a.data_[i];
-    }
-  }
+  // void CopyData(const array &a) {
+  //   for (size_t i = 0; i < size(); ++i) {
+  //     data_[i] = a.data_[i];
+  //   }
+  // }
 };
 }  // namespace s21
 

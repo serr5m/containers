@@ -35,7 +35,7 @@ class vector {
       pointer_vector_[i] = v.pointer_vector_[i];
     }
   };
-  vector(vector&& v) {
+  vector(vector&& v) : size_(0), capacity_(0), pointer_vector_(nullptr) {
     std::swap(size_, v.size_);
     std::swap(capacity_, v.capacity_);
     std::swap(pointer_vector_, v.pointer_vector_);
@@ -51,6 +51,7 @@ class vector {
   reference operator[](size_type pos) { return pointer_vector_[pos]; };
   //   value_type operator[](int index) { return pointer_vector_[index]; };
   vector& operator=(vector&& v) {
+    std::cout << "sdasd" << std::endl;
     RemoveVector();
     std::swap(size_, v.size_);
     std::swap(capacity_, v.capacity_);
