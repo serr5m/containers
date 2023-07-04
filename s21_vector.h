@@ -51,7 +51,6 @@ class vector {
   reference operator[](size_type pos) { return pointer_vector_[pos]; };
   //   value_type operator[](int index) { return pointer_vector_[index]; };
   vector& operator=(vector&& v) {
-    std::cout << "sdasd" << std::endl;
     RemoveVector();
     std::swap(size_, v.size_);
     std::swap(capacity_, v.capacity_);
@@ -59,7 +58,14 @@ class vector {
     return *this;
   };
 
-  vector& operator=(const vector& v) = delete;
+  vector& operator=(const vector& v) {
+    RemoveVector();
+    pointer_vector_ = new value_type[v.size_];
+    size_ = v.size_;
+    capacity_ = v.capacity_;
+    std::copy(v.pointer_vector_, v.pointer_vector_ + size_, begin());
+    return *this;
+  };
   const reference front() { return *pointer_vector_; };
 
   const reference back() { return *(pointer_vector_ + size_ - 1); }
@@ -69,8 +75,6 @@ class vector {
   iterator begin() { return pointer_vector_; }
 
   iterator end() { return (pointer_vector_ + size_); }
-
-  void RemoveVector() { delete[] pointer_vector_; }
 
   bool empty() { return !size_; }
 
@@ -154,6 +158,13 @@ class vector {
   size_t size_;
   size_t capacity_;
   value_type* pointer_vector_;
+
+  void RemoveVector() {
+    delete[] pointer_vector_;
+    pointer_vector_ = nullptr;
+    // size_ = 0;
+    // capacity_ = 0;
+  }
 };
 }  // namespace s21
 #endif  // SRC_S21_vector_H_

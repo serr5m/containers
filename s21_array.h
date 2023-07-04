@@ -73,12 +73,6 @@ class array {
 
  private:
   value_type data_[N];
-
-  // void CopyData(const array &a) {
-  //   for (size_t i = 0; i < size(); ++i) {
-  //     data_[i] = a.data_[i];
-  //   }
-  // }
 };
 }  // namespace s21
 
