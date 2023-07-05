@@ -131,10 +131,11 @@ class vector {
   }
 
   void erase(iterator pos) {
-    s21::vector<value_type> new_vector(size_ - 1);
+    s21::vector<value_type> new_vector(size_);
     int distance = std::distance(begin(), pos);
     std::copy(begin(), begin() + distance, new_vector.begin());
     std::copy(begin() + distance + 1, end(), new_vector.begin() + distance);
+    new_vector.size_--;
     swap(new_vector);
   }
 
@@ -162,8 +163,6 @@ class vector {
   void RemoveVector() {
     delete[] pointer_vector_;
     pointer_vector_ = nullptr;
-    // size_ = 0;
-    // capacity_ = 0;
   }
 };
 }  // namespace s21

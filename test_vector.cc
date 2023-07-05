@@ -229,15 +229,49 @@ TEST(erase, test0) {
   s21_vector.erase(s21_vector.begin() + 2);
   std_vector.erase(std_vector.begin() + 2);
 
-  std::cout << "s21 capa " << s21_vector.capacity() << " std size "
-            << s21_vector.size() << std::endl;
-  std::cout << "std capa " << std_vector.capacity() << " std size "
-            << std_vector.size() << std::endl;
+  // std::cout << "s21 capa " << s21_vector.capacity() << " s21 size "
+  //           << s21_vector.size() << std::endl;
+  // std::cout << "std capa " << std_vector.capacity() << " std size "
+  //           << std_vector.size() << std::endl;
 
-  for (size_t i = 0; i < s21_vector.size(); i++) {
-    std::cout << s21_vector[i] std::endl;
+  for (size_t i = 0; i < std_vector.size(); i++) {
+    // std::cout << std_vector[i] << std::endl;
     EXPECT_EQ(s21_vector[i], std_vector[i]);
   }
   EXPECT_EQ(s21_vector.size(), std_vector.size());
   EXPECT_EQ(s21_vector.capacity(), std_vector.capacity());
+}
+
+TEST(push_back, test0) {
+  s21::vector<int> s21_vector{1, 2, 3, 4, 5};
+  std::vector<int> std_vector{1, 2, 3, 4, 5};
+
+  s21_vector.push_back(9);
+  std_vector.push_back(9);
+
+  for (size_t i = 0; i < s21_vector.size(); i++) {
+    EXPECT_EQ(s21_vector[i], std_vector[i]);
+  }
+}
+
+TEST(pop_back, test0) {
+  s21::vector<int> s21_vector{1, 2, 3, 4, 5};
+  std::vector<int> std_vector{1, 2, 3, 4, 5};
+
+  s21_vector.pop_back();
+  std_vector.pop_back();
+
+  for (size_t i = 0; i < s21_vector.size(); i++) {
+    EXPECT_EQ(s21_vector[i], std_vector[i]);
+  }
+}
+
+TEST(swap, test0) {
+  s21::vector<int> s21_vector{1, 2, 3, 4, 5};
+  s21::vector<int> s21_vector2{6, 7, 8};
+  s21_vector.swap(s21_vector2);
+
+  std::vector<int> std_vector{1, 2, 3, 4, 5};
+  std::vector<int> std_vector2{6, 7, 8};
+  std_vector.swap(std_vector2);
 }
