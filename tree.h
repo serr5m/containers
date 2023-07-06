@@ -20,6 +20,7 @@ class Tree {
       std::cout << "k " << k << std::endl;
     }
   } node;
+  // 1,2,4,8,9,5,10,3,6,7.
 
   Tree() : root_(node()) {}
 
