@@ -63,6 +63,29 @@ class Tree {
     }
   }
 
+  node* find_node(T key) {
+    node* tmp = root_;
+    bool was_find = 0;
+    while (!was_find) {
+      if ((tmp->left == nullptr) && (tmp->right == nullptr)) {
+        break;
+      }
+
+      if (key < root_->key) {
+        tmp = tmp->left;
+      } else {
+        tmp = tmp->right;
+      }
+    }
+  }
+  void remove_tree() {
+    if (root_) {
+      delete root_->left;
+      delete root_->right;
+      delete root_->parent;
+      delete root_;
+    }
+  }
   node* root_ = nullptr;
 };
 
