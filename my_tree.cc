@@ -11,13 +11,14 @@ int main() {
   a.insert_elem(3);
   a.insert_elem(8);
   a.insert_elem(6);
+  a.insert_elem(13);
 
   // a.add_element(7);
   // a.add_element(13);
   // a.add_element(21);
   // a.add_element(3);
   // a.add_element(8);
-  std::cout << a.root_->left->left->right->key << std::endl;
+  std::cout << a.root_->left->right->key << std::endl;
 
   // bool res_find = a.find_node(8);
   // std::cout << res_find << std::endl;

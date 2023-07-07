@@ -50,11 +50,8 @@ class Tree {
       } else {
         curr = curr->right;
       }
-      // return;
     }
   }
-  //
-  //
 
   // void add_element(T value) {
   //   node* curr = root_;
