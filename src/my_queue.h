@@ -1,5 +1,5 @@
-#ifndef CONTAINERS_my_QUEUE_H_
-#define CONTAINERS_my_QUEUE_H_
+#ifndef CONTAINERS_MY_QUEUE_H_
+#define CONTAINERS_MY_QUEUE_H_
 
 #include "my_list.h"
 
@@ -51,4 +51,4 @@ class queue {
   list<T> container_;
 };
 }  // namespace my
-#endif  // CONTAINERS_my_QUEUE_H_
+#endif  // CONTAINERS_MY_QUEUE_H_

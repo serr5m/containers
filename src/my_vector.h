@@ -1,5 +1,5 @@
-#ifndef CONTAINERS_my_VECTOR_H_
-#define CONTAINERS_my_VECTOR_H_
+#ifndef CONTAINERS_MY_VECTOR_H_
+#define CONTAINERS_MY_VECTOR_H_
 #include <initializer_list>
 #include <limits>
 
@@ -162,4 +162,4 @@ class vector {
 };
 }  // namespace my
 
-#endif  // CONTAINERS_my_VECTOR_H_
+#endif  // CONTAINERS_MY_VECTOR_H_

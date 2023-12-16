@@ -1,5 +1,5 @@
-#ifndef CONTAINERS_my_LIST_H_
-#define CONTAINERS_my_LIST_H_
+#ifndef CONTAINERS_MY_LIST_H_
+#define CONTAINERS_MY_LIST_H_
 
 #include <cstddef>
 #include <iostream>
@@ -292,4 +292,4 @@ class list {
 
 }  // namespace my
 
-#endif  // CONTAINERS_my_LIST_H_
+#endif  // CONTAINERS_MY_LIST_H_
