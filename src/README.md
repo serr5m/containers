@@ -5,19 +5,16 @@
 Welcome to the Containers library! This C++ library provides a set of classical container classes to facilitate data storage and manipulation. The library includes the following containers:
 
 - **list**: Implemented using a linked list structure.
-- **map**: Associative container that stores key-value pairs.
 - **queue**: A basic implementation of a queue.
-- **set**: Container that stores unique elements in a sorted order.
 - **stack**: A basic implementation of a stack.
 - **vector**: Dynamic array that automatically adjusts its size.
+- **array**: Fixed-size array with a specified size.
 
 ## File Structure
 
 - **containers.h**: The main header file that includes the implementations of all container classes.
 - **list.h**: Implementation of the linked list-based list container.
-- **map.h**: Implementation of the map container.
 - **queue.h**: Implementation of the queue container.
-- **set.h**: Implementation of the set container.
 - **stack.h**: Implementation of the stack container.
 - **vector.h**: Implementation of the dynamic array-based vector container.
 - **Makefile**: Makefile for building and testing the library.
