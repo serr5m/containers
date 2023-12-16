@@ -1,9 +1,8 @@
-#ifndef CONTAINERS_S21_QUEUE_H_
-#define CONTAINERS_S21_QUEUE_H_
+#ifndef CONTAINERS_QUEUE_H_
+#define CONTAINERS_QUEUE_H_
 
-#include "s21_list.h"
+#include "list.h"
 
-namespace s21 {
 template <typename T>
 class queue {
  public:
@@ -50,5 +49,4 @@ class queue {
  private:
   list<T> container_;
 };
-}  // namespace s21
-#endif  // CONTAINERS_S21_QUEUE_H_
+#endif  // CONTAINERS_QUEUE_H_

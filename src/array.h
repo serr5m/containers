@@ -1,10 +1,10 @@
-#ifndef CONTAINERS_S21_ARRAY_H_
-#define CONTAINERS_S21_ARRAY_H_
+#ifndef CONTAINERS_ARRAY_H_
+#define CONTAINERS_ARRAY_H_
 
 #include <initializer_list>
 #include <stdexcept>
 
-namespace s21 {
+namespace {
 template <typename T, size_t N>
 class array {
  public:
@@ -76,6 +76,6 @@ class array {
  private:
   value_type data_[N];
 };
-}  // namespace s21
+}  // namespace
 
-#endif  // CONTAINERS_S21_ARRAY_H_
+#endif  // CONTAINERS_ARRAY_H_

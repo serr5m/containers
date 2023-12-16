@@ -1,11 +1,11 @@
-#ifndef CONTAINERS_S21_LIST_H_
-#define CONTAINERS_S21_LIST_H_
+#ifndef CONTAINERS_my_LIST_H_
+#define CONTAINERS_my_LIST_H_
 
 #include <cstddef>
 #include <iostream>
 #include <limits>
 
-namespace s21 {
+namespace my {
 
 template <typename T>
 class list {
@@ -290,6 +290,6 @@ class list {
   size_type size_;
 };
 
-}  // namespace s21
+}  // namespace my
 
-#endif  // CONTAINERS_S21_LIST_H_
+#endif  // CONTAINERS_my_LIST_H_

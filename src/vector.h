@@ -1,9 +1,8 @@
-#ifndef CONTAINERS_S21_VECTOR_H_
-#define CONTAINERS_S21_VECTOR_H_
+#ifndef CONTAINERS_VECTOR_H_
+#define CONTAINERS_VECTOR_H_
 #include <initializer_list>
 #include <limits>
 
-namespace s21 {
 template <typename T>
 class vector {
  public:
@@ -112,7 +111,7 @@ class vector {
   void clear() noexcept { size_ = 0; }
 
   iterator insert(iterator pos, const_reference value) {
-    s21::vector<value_type> new_vector;
+    vector<value_type> new_vector;
     if (size_ == capacity_) {
       size_type new_capacity = capacity_ == 0 ? 1 : capacity_ * 2;
       new_vector.reserve(new_capacity);
@@ -127,7 +126,7 @@ class vector {
   }
 
   void erase(iterator pos) {
-    s21::vector<value_type> new_vector(size_);
+    vector<value_type> new_vector(size_);
     int distance = std::distance(begin(), pos);
     std::copy(begin(), begin() + distance, new_vector.begin());
     std::copy(begin() + distance + 1, end(), new_vector.begin() + distance);
@@ -160,6 +159,5 @@ class vector {
     pointer_vector_ = nullptr;
   }
 };
-}  // namespace s21
 
-#endif  // CONTAINERS_S21_VECTOR_H_
+#endif  // CONTAINERS_VECTOR_H_

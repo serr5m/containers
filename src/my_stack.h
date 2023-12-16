@@ -1,9 +1,9 @@
-#ifndef CONTAINERS_S21_STACK_H_
-#define CONTAINERS_S21_STACK_H_
+#ifndef CONTAINERS_my_STACK_H_
+#define CONTAINERS_my_STACK_H_
 
-#include "s21_list.h"
+#include "my_list.h"
 
-namespace s21 {
+namespace my {
 template <typename T>
 class stack {
  public:
@@ -48,5 +48,5 @@ class stack {
  private:
   list<T> container_;
 };
-}  // namespace s21
-#endif  // CONTAINERS_S21_STACK_H_
+}  // namespace my
+#endif  // CONTAINERS_my_STACK_H_

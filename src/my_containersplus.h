@@ -1,0 +1,6 @@
+#ifndef CONTAINERS_my_CONTAINERSPLUS_H_
+#define CONTAINERS_my_CONTAINERSPLUS_H_
+
+#include "my_array.h"
+
+#endif  // CONTAINERS_my_CONTAINERSPLUS_H_
